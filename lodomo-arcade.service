@@ -1,0 +1,13 @@
+[Unit]
+Description=Lodomo Arcade Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/lodomo/Lodomo-Arcade-Service/game.x86_64
+WorkingDirectory=/home/lodomo/Lodomo-Arcade-Service
+Restart=always
+User=lodomo
+
+[Install]
+WantedBy=multi-user.target
