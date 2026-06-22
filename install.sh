@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -e
 
 SERVICE_NAME="lodomo-arcade"
@@ -14,8 +15,11 @@ sudo systemctl daemon-reload
 echo "[*] Enabling service (starts on boot)..."
 sudo systemctl enable "${SERVICE_NAME}.service"
 
-echo "[*] Starting service immediately..."
-sudo systemctl start "${SERVICE_NAME}.service"
+echo "[*] Updating game files..."
+./update_game.sh
 
 echo "[+] Done! 'Lodomo Arcade' is running."
 echo "    Check status with: sudo systemctl status lodomo-arcade"
+
+
+

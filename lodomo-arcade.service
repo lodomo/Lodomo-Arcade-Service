@@ -4,8 +4,8 @@ After=network.target display-manager.service
 
 [Service]
 Type=simple
-ExecStart=/home/lodomo/Lodomo-Arcade-Service/game.x86_64
-WorkingDirectory=/home/lodomo/Lodomo-Arcade-Service
+ExecStart=/home/lodomo/Lodomo-Arcade-Service/game/game.x86_64
+WorkingDirectory=/home/lodomo/Lodomo-Arcade-Service/game/
 Restart=always
 User=lodomo
 # Fix for GUI applications running under systemd
