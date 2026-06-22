@@ -13,17 +13,17 @@ echo "Base URL for game files: ${BASE}"
 echo "Downloading game files from ${BASE}..."
 
 echo "Downloading game.pck from ${BASE}/game.pck..."
-wget -q "${BASE}/game.pck" -O game.pck
+wget "${BASE}/game.pck" -O game.pck
 
 chmod +x game.pck
 
 echo "Downloading game.x86_64 from ${BASE}/game.x86_64..."
-wget -q "${BASE}/game.x86_64" -O game.x86_64
+wget "${BASE}/game.x86_64" -O game.x86_64
 
 chmod +x game.x86_64
 
 echo "Downloading version.md from ${BASE}/version.md..."
-wget -q "${BASE}/version.md" -O version.md
+wget "${BASE}/version.md" -O version.md
 
 # Restart lodomo-arcade.service
 sudo systemctl restart lodomo-arcade.service
