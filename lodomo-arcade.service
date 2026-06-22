@@ -1,6 +1,6 @@
 [Unit]
 Description=Lodomo Arcade Service
-After=network.target
+After=network.target display-manager.service
 
 [Service]
 Type=simple
@@ -8,6 +8,11 @@ ExecStart=/home/lodomo/Lodomo-Arcade-Service/game.x86_64
 WorkingDirectory=/home/lodomo/Lodomo-Arcade-Service
 Restart=always
 User=lodomo
+# Fix for GUI applications running under systemd
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/lodomo/.Xauthority"
+# Ensure permissions are correct (optional but recommended)
+PermissionsStartOnly=true
 
 [Install]
 WantedBy=multi-user.target
