@@ -24,7 +24,3 @@ chmod +x game.x86_64
 
 echo "Downloading version.md from ${BASE}/version.md..."
 wget "${BASE}/version.md" -O version.md
-
-# Restart lodomo-arcade.service
-sudo systemctl restart lodomo-arcade.service
-
