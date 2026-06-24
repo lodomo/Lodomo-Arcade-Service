@@ -1,18 +1,18 @@
 [Unit]
 Description=Lodomo Arcade Service
-After=network.target display-manager.service
+After=graphical-session.target
 
 [Service]
 Type=simple
 ExecStart=/home/lodomo/Lodomo-Arcade-Service/game/game.x86_64
 WorkingDirectory=/home/lodomo/Lodomo-Arcade-Service/game/
 Restart=always
-User=lodomo
-# Fix for GUI applications running under systemd
-Environment="DISPLAY=:0"
-Environment="XAUTHORITY=/home/lodomo/.Xauthority"
-# Ensure permissions are correct (optional but recommended)
-PermissionsStartOnly=true
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+# Ensure audio socket is accessible (PipeWire/PulseAudio)
+Environment=PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native
+Environment=PIPEWIRE_SOCKET=${XDG_RUNTIME_DIR}/pipewire-0
+TimeoutStopSec=5
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
