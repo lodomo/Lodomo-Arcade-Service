@@ -24,3 +24,6 @@ chmod +x game.x86_64
 
 echo "Downloading version.md from ${BASE}/version.md..."
 wget "${BASE}/version.md" -O version.md
+
+echo "Downloading wallpaper from ${BASE}/wallpaper.png..."
+wget "${BASE}/wallpaper.png" -O wallpaper.png
